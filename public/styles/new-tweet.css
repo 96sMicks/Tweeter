@@ -1,0 +1,27 @@
+.button {
+  color: white;
+  background-color: rgb(13, 66, 122);
+  display: flex;
+  text-align: center;
+}
+
+.button-half {
+  display: flex;
+  width: 900px;
+  font-family: Bungee;
+  /* border: dashed red; */
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.tweet-text-input {
+  width: 900px;
+  font-family: sans-serif;
+  border-bottom: 8px solid brown;
+  outline: none;
+  background-color: #f4f1ec;
+}
+
+
+
+/* need to add divs ! */
