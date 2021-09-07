@@ -1,0 +1,31 @@
+nav {
+  display: flex;
+  font-family: Bungee, sans-serif;
+  height: 120px;
+  width: 100%;
+  color: #FFFF;
+  background-color: #4056A1;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.nav-left {
+  display: flex;
+  font-size: 50px;
+  
+}
+
+.nav-right {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  font-family: sans-serif;
+  font-size: 30px;
+}
+
+/* .fa {
+  color: red;
+} Ask about how to change colour of a logo */
