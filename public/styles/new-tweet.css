@@ -5,11 +5,9 @@
   text-align: center;
 }
 
-.button-half {
+.button-counter {
   display: flex;
-  width: 900px;
   font-family: Bungee;
-  /* border: dashed red; */
   justify-content: space-between;
   margin: 20px 0;
 }
