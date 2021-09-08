@@ -9,7 +9,8 @@ nav {
   padding-right: 1.5em;
   justify-content: space-between;
   align-items: center;
-  position: relative;
+  position: fixed;
+  top: 0;
 }
 
 .nav-left {
@@ -26,6 +27,6 @@ nav {
   font-size: 30px;
 }
 
-/* .fa {
+.fa-angle-double-down {
   color: red;
-} Ask about how to change colour of a logo */
+} 
