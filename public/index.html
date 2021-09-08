@@ -61,7 +61,7 @@
       </div>
     </nav>
 
-    <header>
+    <header class="main-header">
       <div class="header-avatar">
         <span>
           <img src="/images/profile-hex.png"> 
@@ -85,7 +85,7 @@
               <label for="tweet-text"></label>
               <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
             </div>
-            <div class="button-half">
+            <div class="button-counter">
               <span><button type="submit" class="button">Tweet</button></span>
               <span><output name="counter" class="counter" for="tweet-text">140</output></span>
             </div>
@@ -102,12 +102,26 @@
                     @UserName
                   </p>
                 </header>
-                <textarea></textarea>
-                <footer>Time stamp</footer>
+                <div>
+                  tweet display
+                </div>
+                <footer class="tweet-footer">
+                  <p>
+                    Time Stamp
+                  </p>
+                  <div>
+                    <i class="fas fa-flag"></i>
+                    <i class="fas fa-retweet"></i>
+                    <i class="fas fa-heart"></i></i>
+                  </div>
+                </footer>
               </article>
             </section>
           </form>
         </section>
+        <div class="bottom">
+
+        </div>
     </main>
   </body>
 </html>
