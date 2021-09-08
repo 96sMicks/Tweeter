@@ -14,7 +14,7 @@
   margin: 20px 0;
 }
 
-.tweet-text-input {
+#tweet-text {
   width: 900px;
   font-family: sans-serif;
   border-bottom: 8px solid brown;
@@ -22,6 +22,9 @@
   background-color: #f4f1ec;
 }
 
+.counter {
+  color: black;
+}
 
 
 /* need to add divs ! */
