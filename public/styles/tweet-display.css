@@ -39,3 +39,12 @@
 .tweet-footer i:hover {
   color: orange
 }
+
+.tweet {
+  background-color: #F4EEE8;
+  width: 100%;
+  height: 100%;
+  margin: 40px 0;
+  padding: 25px;
+  border: 4px solid black;
+}
