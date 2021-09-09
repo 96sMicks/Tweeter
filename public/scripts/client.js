@@ -16,12 +16,12 @@ const hardCodeTweet = {
   created_at: 1461116232227,
 };
 
-$(document).ready(function () {
+$(document).ready(function() {
 const createTweetElement = function (obj) {
   const $tweet = $(`<article>
                 <header class="tweet-header">
                   <div>
-                    <i class="fas fa-user-ninja"></i>
+                    <img src="${obj.user.avatars}"></i>
                   <p>
                     ${obj.user.name}
                   </p>
