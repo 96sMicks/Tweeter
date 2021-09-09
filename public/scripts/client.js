@@ -17,7 +17,7 @@ const hardCodeTweet = {
 };
 
 $(document).ready(function() {
-const createTweetElement = function (obj) {
+  const createTweetElement = function (obj) {
   const $tweet = $(`<article>
                 <header class="tweet-header">
                   <div>
@@ -35,7 +35,7 @@ const createTweetElement = function (obj) {
                 </div>
                 <footer class="tweet-footer">
                   <p>
-                    ${obj.created_at}
+                    ${timeago.format(obj.created_at)}
                   </p>
                   <div>
                     <i class="fas fa-flag"></i>
