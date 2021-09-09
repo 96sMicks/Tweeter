@@ -67,7 +67,6 @@ const renderTweets = function(tweetsObj) {
 
   // loops through tweets
     for (const tweet of tweetsObj) {
-      // console.log(tweet)
       // calls createTweetElement for each tweet
       const $tweet = createTweetElement(tweet)
 
@@ -79,6 +78,26 @@ const renderTweets = function(tweetsObj) {
   }
 
   renderTweets(hardCodeTweet)
+
+
+  $("form").submit(function (event) {
+    event.preventDefault();
+
+    const querystring = $(this).serialize()
+    
+    
+    $.ajax({url: "/tweets", method: "POST", data: querystring}).then(function(response) {
+      console.log(response)
+    })
+
+  });
+
+
+
+  const loadTweets = function() {
+    $.ajax({url: "/tweets", method: "GET", })
+  }
+
 });
 
 
