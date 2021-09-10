@@ -49,13 +49,12 @@ $(document).ready(function() {
 
 const renderTweets = function(tweetsArray) {
 
-
+  $("#tweets-container").empty()
   // loops through tweets  
     for (const tweet of tweetsArray) {
       // calls createTweetElement for each tweet
       const $tweet = createTweetElement(tweet)
 
-      
       // takes return value and appends it to the tweets container
       $("#tweets-container").prepend($tweet);
     }
@@ -63,24 +62,33 @@ const renderTweets = function(tweetsArray) {
   }
 
 
+  $(".input-error").hide()
 
   $("form").submit(function (event) {
     event.preventDefault();
+    $(".active-error").empty()
     
     const $currentTweet = $(this).serialize()
-    console.log($currentTweet)
-    
+
+    const $overError = "Tweet past character limit!"
+
+    const $underError = "There's nothing to tweet!"
     
     if ($currentTweet.length > 145) {
-      window.alert("Tweet past character limit!")
+      $(".active-error").append($overError)
+
+      $(".input-error").show("slow")
       return;
     }
     
     if ($currentTweet.length < 6 ) {
-      window.alert("There's nothing to tweet!")
+      $(".active-error").append($underError)
+
+      $(".input-error").show("slow")
       return;
     }
     
+    $(".input-error").slideUp()
     
     $.ajax({url: "/tweets", method: "POST", data: $currentTweet}).then(function(response) {
       

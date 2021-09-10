@@ -32,7 +32,7 @@
   justify-content: space-between;
   align-items: center;
   font-size: 15px;
-  border-top: 5px solid black;
+  border-top: 1px solid black;
   margin-top: 15px;
 }
 
@@ -47,4 +47,19 @@
   margin: 40px 0;
   padding: 25px;
   border: 4px solid black;
+}
+
+.input-error{
+  background: #c23960;
+  color: white;
+  padding: 10px;
+  border-radius: 0 ;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.input-error > div {
+  display: flex;
+  align-items: center;
 }
