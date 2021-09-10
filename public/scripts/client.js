@@ -4,6 +4,11 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
 
 
 $(document).ready(function() {
@@ -42,17 +47,15 @@ $(document).ready(function() {
 
 const renderTweets = function(tweetsArray) {
 
-  // Reversing so we can loop from the bottom and bring new tweets up top
-  const reversedArray = tweetsArray.reverse()
 
-  // loops through tweets reversed 
-    for (const tweet of reversedArray) {
+  // loops through tweets  
+    for (const tweet of tweetsArray) {
       // calls createTweetElement for each tweet
       const $tweet = createTweetElement(tweet)
 
       
       // takes return value and appends it to the tweets container
-      $("#tweets-container").append($tweet);
+      $("#tweets-container").prepend($tweet);
     }
     
   }
@@ -62,26 +65,31 @@ const renderTweets = function(tweetsArray) {
   $("form").submit(function (event) {
     event.preventDefault();
     
-    const $currentTweet = $(this).serialize()
+    const $unSafeCurrentTweet = $(this).serialize()
+
+    const $safeHTML = escape($unSafeCurrentTweet)
     
-    if ($currentTweet.val > 140) {
+    
+    
+    
+    if ($safeHTML.length > 145) {
       window.alert("Tweet past character limit!")
       return;
     }
     
-    if ($currentTweet.val < 1 ) {
+    if ($safeHTML.length < 6 ) {
       window.alert("There's nothing to tweet!")
       return;
     }
     
     
-    $.ajax({url: "/tweets", method: "POST", data: $currentTweet}).then(function(response) {
+    $.ajax({url: "/tweets", method: "POST", data: $safeHTML}).then(function(response) {
       
       $.get("/tweets", function(data, status) {
         renderTweets(data)
       })
       
-      $( "#tweet-text" ).val('')
+      $("#tweet-text").val("")
     })
 
   
@@ -94,14 +102,8 @@ const renderTweets = function(tweetsArray) {
       renderTweets(data)
     })
   
-    // $.get("/", function (data, status) {
-    //   renderTweets(data)
-    // })
+  
   }
   loadTweets();
 });
-
-
-// const $tweet = createTweetElement(hardCodeTweet);
-// console.log($tweet);
 
