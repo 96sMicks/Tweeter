@@ -4,34 +4,36 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-const escape = function (str) {
-  let div = document.createElement("div");
-  div.appendChild(document.createTextNode(str));
-  return div.innerHTML;
-};
 
 
 $(document).ready(function() {
+
+  // A function designed to avoid cross-site scripting from user input
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
 
   const createTweetElement = function (obj) {
   const $tweet = $(`<article class="tweet">
                 <header class="tweet-header">
                   <div>
-                    <img src="${obj.user.avatars}"></i>
+                    <img src="${escape(obj.user.avatars)}"></i>
                   <p>
-                    ${obj.user.name}
+                    ${escape(obj.user.name)}
                   </p>
                 </div>
                   <p>
-                    ${obj.user.handle}
+                    ${escape(obj.user.handle)}
                   </p>
                 </header>
                 <div>
-                ${obj.content.text}
+                ${escape(obj.content.text)}
                 </div>
                 <footer class="tweet-footer">
                   <p>
-                    ${timeago.format(obj.created_at)}
+                    ${escape(timeago.format(obj.created_at))}
                   </p>
                   <div>
                     <i class="fas fa-flag"></i>
@@ -65,25 +67,22 @@ const renderTweets = function(tweetsArray) {
   $("form").submit(function (event) {
     event.preventDefault();
     
-    const $unSafeCurrentTweet = $(this).serialize()
-
-    const $safeHTML = escape($unSafeCurrentTweet)
+    const $currentTweet = $(this).serialize()
+    console.log($currentTweet)
     
     
-    
-    
-    if ($safeHTML.length > 145) {
+    if ($currentTweet.length > 145) {
       window.alert("Tweet past character limit!")
       return;
     }
     
-    if ($safeHTML.length < 6 ) {
+    if ($currentTweet.length < 6 ) {
       window.alert("There's nothing to tweet!")
       return;
     }
     
     
-    $.ajax({url: "/tweets", method: "POST", data: $safeHTML}).then(function(response) {
+    $.ajax({url: "/tweets", method: "POST", data: $currentTweet}).then(function(response) {
       
       $.get("/tweets", function(data, status) {
         renderTweets(data)
