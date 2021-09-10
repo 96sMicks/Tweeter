@@ -7,6 +7,7 @@
 
 
 $(document).ready(function() {
+
   const createTweetElement = function (obj) {
   const $tweet = $(`<article class="tweet">
                 <header class="tweet-header">
@@ -39,10 +40,13 @@ $(document).ready(function() {
   return $tweet;
 };
 
-const renderTweets = function(tweetsObj) {
+const renderTweets = function(tweetsArray) {
 
-  // loops through tweets
-    for (const tweet of tweetsObj) {
+  // Reversing so we can loop from the bottom and bring new tweets up top
+  const reversedArray = tweetsArray.reverse()
+
+  // loops through tweets reversed 
+    for (const tweet of reversedArray) {
       // calls createTweetElement for each tweet
       const $tweet = createTweetElement(tweet)
 
@@ -53,21 +57,35 @@ const renderTweets = function(tweetsObj) {
     
   }
 
-// renderTweets(hardCodeTweet)
 
 
   $("form").submit(function (event) {
     event.preventDefault();
-
-    const querystring = $(this).serialize()
+    
+    const $currentTweet = $(this).serialize()
+    
+    if ($currentTweet.val > 140) {
+      window.alert("Tweet past character limit!")
+      return;
+    }
+    
+    if ($currentTweet.val < 1 ) {
+      window.alert("There's nothing to tweet!")
+      return;
+    }
     
     
-    $.ajax({url: "/tweets", method: "POST", data: querystring}).then(function(response) {
-      console.log(response)
+    $.ajax({url: "/tweets", method: "POST", data: $currentTweet}).then(function(response) {
+      
+      $.get("/tweets", function(data, status) {
+        renderTweets(data)
+      })
+      
+      $( "#tweet-text" ).val('')
     })
 
+  
   });
-
 
 
   const loadTweets = function() {
@@ -76,8 +94,10 @@ const renderTweets = function(tweetsObj) {
       renderTweets(data)
     })
   
+    // $.get("/", function (data, status) {
+    //   renderTweets(data)
+    // })
   }
-
   loadTweets();
 });
 
