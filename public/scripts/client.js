@@ -15,6 +15,10 @@ $(document).ready(function() {
     return div.innerHTML;
   };
 
+  $("#compose-tweet").click(function () {
+    $("#tweet-text").focus()
+  })
+
   const createTweetElement = function (obj) {
   const $tweet = $(`<article class="tweet">
                 <header class="tweet-header">
@@ -55,7 +59,7 @@ const renderTweets = function(tweetsArray) {
       // calls createTweetElement for each tweet
       const $tweet = createTweetElement(tweet)
 
-      // takes return value and appends it to the tweets container
+      // takes return value and appends it to the top of tweets container
       $("#tweets-container").prepend($tweet);
     }
     

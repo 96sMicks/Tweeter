@@ -57,30 +57,24 @@
         <span> 
           <b>Write</b> a new tweet 
         </span>
-
         <span>
-          <i class="fas fa-angle-double-down"></i>
+          <button id="compose-tweet"><i class="fas fa-angle-double-down"></i></button>
         </span>
       </div>
     </nav>
 
     <header class="main-header">
-      <div class="header-avatar">
-        <span>
+      <div>
           <img src="/images/profile-hex.png"> 
-        </span>
       </div>
       <br>
-      <div class="header-name"> 
-        <span>
-          <h2>Your Name</h2>
-        </span>
+      <div> 
+          <h2>Mickey</h2>
       </div>
   </header>
 
     <!-- Page-specific (main) content here -->
-  </body>
-    <main class="container">
+    <main>
         <section class="new-tweet">
           <div class="input-error">
             <p>
@@ -100,14 +94,14 @@
               <span><button type="submit" class="button">Tweet</button></span>
               <span><output name="counter" class="counter" for="tweet-text">140</output></span>
             </div>
-            <section id="tweets-container">
-
-            </section>
           </form>
         </section>
+          <section id="tweets-container">
+
+          </section>
+        </main>
         <div class="bottom">
 
         </div>
-    </main>
   </body>
 </html>
