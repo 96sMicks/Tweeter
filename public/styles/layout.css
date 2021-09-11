@@ -19,6 +19,8 @@ body {
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: Source Sans Pro, sans-serif;
+  display: flex;
+  flex-direction: column;
   
 }
 
@@ -31,17 +33,35 @@ body {
    margin-left: 5%;
    margin-right: 5%;
    background-color: #f4f1ec;
+   display: flex;
+   flex-direction: column;
+   align-self: center;
+   justify-content: center;
+   top: 500px
 
  }
  
- .container {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
 
- }
 
 .bottom {
   margin: 100px;
 }
- 
+
+@media only screen and (min-width: 1024px) {
+  body {
+    display: flex;
+    flex-direction: row;
+  }
+
+  main{
+    width: 60%;
+  }
+
+  .new-tweet {
+    margin-top: 200px;
+  }
+
+  #tweet-text{
+    width: 60%;
+  }
+}
