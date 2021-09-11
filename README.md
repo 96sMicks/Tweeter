@@ -11,6 +11,10 @@ This repository is the starter code for the project: Students will fork and clon
 3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
 4. Go to <http://localhost:8080/> in your browser.
 
+## Screenshots
+[!The deafault home page for Tweeter] (https://github.com/96sMicks/Tweeter/blob/main/docs/Tweeter-homepage.png) 
+[!Tweeter after a tweet has been posted] (https://github.com/96sMicks/Tweeter/blob/main/docs/Raptots-tweet.png)
+
 ## Dependencies
 
 - Express
