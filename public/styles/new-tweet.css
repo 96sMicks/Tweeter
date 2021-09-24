@@ -13,12 +13,14 @@
 }
 
 #tweet-text {
-  width: 900px;
+  width: 100%;
+  position: relative;
   font-family: sans-serif;
   border-bottom: 8px solid brown;
   outline: none;
   background-color: #f4f1ec;
   resize: none;
+  word-wrap:break-word;
 }
 
 .counter {

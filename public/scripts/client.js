@@ -73,21 +73,22 @@ const renderTweets = function(tweetsArray) {
     $(".active-error").empty()
     
     const $currentTweet = $(this).serialize()
-
+    
     const $overError = "Tweet past character limit!"
-
+    
     const $underError = "There's nothing to tweet!"
     
-    if ($currentTweet.length > 145) {
-      $(".active-error").append($overError)
+    console.log($("#tweet-text").val().length)
+    if ($("#tweet-text").val().length > 140) {
 
+      
+      $(".active-error").append($overError)
       $(".input-error").show("slow")
       return;
     }
     
-    if ($currentTweet.length < 6 ) {
+    if ($("#tweet-text").val().length <= 0) {
       $(".active-error").append($underError)
-
       $(".input-error").show("slow")
       return;
     }
@@ -102,18 +103,14 @@ const renderTweets = function(tweetsArray) {
       
       $("#tweet-text").val("")
     })
-
   
   });
 
 
   const loadTweets = function() {
-
     $.get("/tweets", function(data, status) {
       renderTweets(data)
     })
-  
-  
   }
   loadTweets();
 });

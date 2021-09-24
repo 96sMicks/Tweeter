@@ -54,7 +54,7 @@ body {
   }
 
   main{
-    width: 60%;
+    width: 90%;
   }
 
   .new-tweet {
@@ -62,6 +62,6 @@ body {
   }
 
   #tweet-text{
-    width: 60%;
+    width: 90%;
   }
 }
