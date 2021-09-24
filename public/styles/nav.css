@@ -11,6 +11,7 @@ nav {
   align-items: center;
   position: fixed;
   top: 0;
+  opacity: 1;
 }
 
 .nav-left {
