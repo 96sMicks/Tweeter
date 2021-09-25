@@ -3,8 +3,8 @@ $(document).ready(function () {
   $("#tweet-text").keyup(function () {
     const determineTheLength = $(this).val().length;
 
-    const MAX_CHARACTERS = 140;
-    const charactersRemaining = MAX_CHARACTERS - determineTheLength;
+    const MAXCHARCOUNT = 140;
+    const charactersRemaining = MAXCHARCOUNT - determineTheLength;
 
     const $parent = $(this).closest("form"); // find the parent of counter first to transverse
     const $liveCounter = $parent.find(".counter"); // find the class counter, we use liveCounter as a proxy to Counter
