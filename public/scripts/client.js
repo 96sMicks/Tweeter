@@ -78,10 +78,7 @@ const renderTweets = function(tweetsArray) {
     
     const $underError = "There's nothing to tweet!"
     
-    console.log($("#tweet-text").val().length)
     if ($("#tweet-text").val().length > 140) {
-
-      
       $(".active-error").append($overError)
       $(".input-error").show("slow")
       return;
