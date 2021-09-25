@@ -12,8 +12,8 @@ This repository is the starter code for the project: Students will fork and clon
 4. Go to <http://localhost:8080/> in your browser.
 
 ## Screenshots
-!["The deafault home page for Tweeter"](https://github.com/96sMicks/Tweeter/blob/main/docs/Tweeter-homepage.png) 
-!["Tweeter after a tweet has been posted"](https://github.com/96sMicks/Tweeter/blob/main/docs/Raptots-tweet.png)
+!["The deafault home page for Tweeter"](https://github.com/96sMicks/Tweeter/blob/master/docs2/Tweeter-homepage.png) 
+!["Tweeter after a tweet has been posted"](https://github.com/96sMicks/Tweeter/blob/master/docs2/Raptors-tweet.png)
 
 ## Dependencies
 
